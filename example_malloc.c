@@ -29,3 +29,4 @@ new_prt = (int *)realloc(ptr, new_num * sizeof(int));
 
 /* 便于代码的可移植性，一般使用malloc函数如下：*/
 （类型）p = （类型）malloc(num*sizeof(int));
+
