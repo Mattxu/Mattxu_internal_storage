@@ -17,7 +17,15 @@ free不能只释放已分配的内存中的一部分，每次释放，都是全�
 分配的内存进行修改，需要使用realloc函数,在realloc重新分配之后，原先返回的指针将
 不能再使用，需要使用realloc返回的指针。
 ********************************************************************/
-void relloac(void *ptr, size_t new_size);
+void realloc(void *ptr, size_t new_size);
+
+/*******realloc的使用举例********/
+int num,new_num;    
+int *ptr;
+int *new_ptr;
+ptr = (int *)malloc(num * sizeof(int));
+/*如果malloc分配的内存空间不够，需要使用realloc重新分配*/
+new_prt = (int *)realloc(ptr, new_num * sizeof(int));
 
 /* 便于代码的可移植性，一般使用malloc函数如下：*/
 （类型）p = （类型）malloc(num*sizeof(int));
