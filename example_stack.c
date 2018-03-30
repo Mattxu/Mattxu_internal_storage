@@ -8,6 +8,7 @@
 #define TRUE    (1)
 #define FALSE   (0)
 #define STACK_SIZE (100)
+#define STACK_SIZE_ADD (10)
 
 //结构体定义
 typedef struct
@@ -32,8 +33,21 @@ int Stack_Init(Stack_Op *pstack)
 }
 
 //入栈操作
-int StackPush_Process()
+int StackPush_Process(Stack_Op *pstack, int item)
 {
+    if((pstack->top - pstack->base) >= pstack->stacksize)
+    {
+        pstack->base = (int *)realloc(pstack->base, (pstack->stacksize + STACK_SIZE_ADD) * sizeof(int));
+
+        if(NULL == pstack->base)
+        {
+            return FALSE;
+        }
+        pstack->top = pstack->base + pstack->stacksize;
+        pstack->stackzie += STACK_SIZE_ADD;
+    }
+    *(pstack->top) = item;
+    
     return TRUE;
 }
 
