@@ -46,15 +46,26 @@ int StackPush_Process(Stack_Op *pstack, int item)
         pstack->top = pstack->base + pstack->stacksize;
         pstack->stackzie += STACK_SIZE_ADD;
     }
-    *(pstack->top) = item;
+    *(pstack->top++) = item;
     
     return TRUE;
 }
 
 //出栈操作
-int StackPop_Process()
+int StackPop_Process(Stack_Op *pstack， int &item)
 {
+    if(pstack->top == pstack->base)    //栈中没有内容
+    {
+        return FALSE;
+    }
+    item = *(--pstack->top);
+        
     return TRUE;
 }
 
-//
+//栈的删除
+int StackDel_Process()
+{
+    
+    return TRUE;
+}
